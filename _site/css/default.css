@@ -1,0 +1,77 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Sukhumvit Set', 'Open Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* nav area */
+.navaera {
+	display: block;
+	margin: 0 auto;
+}
+
+.navbar {
+	margin: 0 3em;
+	padding: 2em 0;
+	display: flex;
+	align-items: baseline;
+}
+
+.navlogo {
+	display: flex;
+	align-items: baseline;
+}
+
+.nav-logo {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
+
+.navlogo a {
+	text-decoration-line: none;
+	color: #141414;
+}
+
+.logo-text {
+	font-family: 'Sukhumvit Set';
+	font-weight: 100;
+	font-size: 1.5em;
+	letter-spacing: 0.3em;
+}
+
+.types {
+	margin-left: auto;
+}
+
+.types a {
+	color: #141414;
+}
+
+.types ul {
+	padding-right: 1em;
+}
+
+.types ul li {
+	font-size: 1em;
+	list-style-type: none;
+	display: inline-block;
+}
+
+.types a {
+	margin: 0 1.25em;
+}
+
+/* description area */
+.des-area {
+	max-width: 37.5em;
+	float: left;
+	margin-left: 9.2em;
+}

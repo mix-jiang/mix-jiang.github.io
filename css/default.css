@@ -16,6 +16,47 @@ body {
   background-color: #ffffff;
 }
 
+/* media query max 700px */
+@media (max-width: 700px) {
+
+	/* navbar mobile */
+	.navbar-mobile {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.navbar {
+		margin: 0 3em;
+		display: flex;
+		align-items: baseline;
+	}
+
+	.navlogo img {
+		margin: 0 auto;
+		display: block;
+		width: 20%;
+	}
+
+	.logo-text {
+		display: none;
+	}
+
+	.types {
+		display: none;
+	}
+
+	/* description part mobile */
+	.des-area {
+		display: block;
+	}
+
+	.des-area p {
+		padding: 0 2em;
+	}
+}
+
+@media (min-width: 700px){
+
 /* nav area */
 .navaera {
 	display: block;
@@ -95,4 +136,6 @@ body {
 	max-width: 37.5em;
 	float: left;
 	margin-left: 9.2em;
+}
+
 }

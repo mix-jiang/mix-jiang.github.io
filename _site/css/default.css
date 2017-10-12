@@ -51,6 +51,7 @@ body {
 	}
 
 	.des-area p {
+		font-family: 'Open Sans';
 		padding: 0 2em;
 	}
 }
@@ -103,7 +104,7 @@ body {
 }
 
 .logo-text {
-	font-family: 'Sukhumvit Set';
+	font-family: 'Open Sans';
 	font-weight: 100;
 	font-size: 1.5em;
 	letter-spacing: 0.3em;
@@ -136,6 +137,10 @@ body {
 	max-width: 37.5em;
 	float: left;
 	margin-left: 9.2em;
+}
+
+.des-area p {
+	font-family: 'Sukhumvit Set', 'Open Sans';
 }
 
 }

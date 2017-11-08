@@ -13,7 +13,7 @@
 body {
   font-family: 'Sukhumvit Set', 'Open Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 /* media query max 700px */
@@ -46,13 +46,18 @@ body {
 	}
 
 	/* description part mobile */
-	.des-area {
+	.des-area, {
 		display: block;
 	}
 
-	.des-area p {
+	.des-area h2 p {
 		font-family: 'Open Sans';
 		padding: 0 2em;
+	}
+
+	.wrap, 
+	.des-area {
+		padding: 0 1em;
 	}
 }
 
@@ -66,7 +71,8 @@ body {
 
 .navbar {
 	margin: 0 3em;
-	padding: 2em 0;
+	padding-bottom: 1.5em;
+	padding-top: 1em;
 	display: flex;
 	align-items: baseline;
 }
@@ -129,7 +135,18 @@ body {
 }
 
 .types a {
-	margin: 0 1.25em;
+	text-decoration: none;
+	padding: .5em 1.25em;
+}
+
+/* fortfolio */
+.warp {
+	float: left;
+	margin-left: 9.2em;
+}
+
+.folio-title h2 {
+	font-family: 'Sukhumvit Set', 'Open Sans';
 }
 
 /* description area */
@@ -137,6 +154,11 @@ body {
 	max-width: 37.5em;
 	float: left;
 	margin-left: 9.2em;
+}
+
+.des-area img {
+	margin: 1em 0;
+	border-radius: 3px;
 }
 
 .des-area p {

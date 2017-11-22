@@ -14,6 +14,7 @@ body {
   font-family: 'Sukhumvit Set', 'Open Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #fff;
+  padding: 0;
 }
 
 /* media query max 700px */
@@ -64,9 +65,12 @@ body {
 @media (min-width: 700px){
 
 /* nav area */
-.navaera {
+.navarea {
+	width: 100%;
 	display: block;
 	margin: 0 auto;
+	position: fixed;
+	background-color: #fff;
 }
 
 .navbar {
@@ -150,15 +154,39 @@ body {
 }
 
 /* description area */
-.des-area {
+
+/* .des-area {
 	max-width: 37.5em;
 	float: left;
 	margin-left: 9.2em;
+} */
+
+.des-area {
+	margin-top: 10em;
+	width: 200%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow: auto;
+	margin-left: 7.2em;
+	padding-left: 0;
 }
 
-.des-area img {
+.proj-container {
+	display: flex;
+	flex-direction: row;
+	margin-right: 0.6em;
+}
+
+.proj-container > .homepageimg img {
 	margin: 1em 0;
 	border-radius: 3px;
+}
+
+.proj-container > .description-p p{
+	margin: 1em 1em;
+	width: 10em;
+	text-align: left;
 }
 
 .des-area p {

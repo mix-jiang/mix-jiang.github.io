@@ -68,7 +68,7 @@ body {
 .navarea {
 	width: 100%;
 	display: block;
-	margin: 0 auto;
+	margin: -1.6em auto;
 	position: fixed;
 	background-color: #fff;
 }
@@ -76,7 +76,7 @@ body {
 .navbar {
 	margin: 0 3em;
 	padding-bottom: 1.5em;
-	padding-top: 1em;
+	padding-top: 1.5em;
 	display: flex;
 	align-items: baseline;
 }
@@ -100,11 +100,11 @@ body {
 }
 
 .navlogo img:hover {
-    transform:translate(0,-10px);
-    -webkit-transform:translate(0,-10px);
-    -moz-transform:translate(0,-10px);
-    -o-transform:translate(0,-10px);
-    -ms-transform:translate(0,-10px);
+    transform:translate(0,-7px);
+    -webkit-transform:translate(0,-7px);
+    -moz-transform:translate(0,-7px);
+    -o-transform:translate(0,-7px);
+    -ms-transform:translate(0,-7px);
 }
 
 
@@ -162,7 +162,7 @@ body {
 } */
 
 .des-area {
-	margin-top: 10em;
+	margin-top: 9.5em;
 	width: 200%;
 	display: flex;
 	flex-direction: row;
@@ -191,6 +191,22 @@ body {
 
 .des-area p {
 	font-family: 'Sukhumvit Set', 'Open Sans';
+}
+
+/* footer */
+.footer-area {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	position: fixed;
+	background-color: #fff;
+}
+
+.right-comment {
+	float: right;
+	text-align: right;
+	padding-right: 4.25em;
+	padding-top: 1.5em;
 }
 
 }

@@ -28,13 +28,16 @@ body {
 
 	.navbar {
 		margin-top: -2em;
-		padding: 1em 0;
+		padding-top: 1.4em;
+		padding-bottom: 1em;
 		left: 0;
 		right: 0;
 		display: flex;
 		align-items: baseline;
 		position: fixed;
+
 		background-color: #fff;
+		box-shadow: 0px 2px 10px 0px rgba(240, 240, 240, 0.6);
 	}
 
 	.navlogo img {
@@ -64,8 +67,26 @@ body {
 	.wrap, 
 	.des-area {
 		padding: 0 1em;
-		margin-top: 2em;
+		margin-top: 3.2em;
 	}
+
+	.proj-container > .homepageimg img {
+		margin: 1em 0;
+		border-radius: 3px;
+	}
+
+	.footer-area {
+		height: 4em;
+		width: 100%;
+		bottom: 0;
+		box-sizing: border-box;
+		background-color: rgba(240, 240, 240, 0.8);
+	}
+
+	.right-comment p {
+		display: none;
+	}
+
 }
 
 @media (min-width: 700px){

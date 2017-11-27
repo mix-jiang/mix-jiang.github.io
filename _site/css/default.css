@@ -137,6 +137,7 @@ body {
 
 .navlogo a {
 	text-decoration-line: none;
+	-webkit-text-decoration-line: none;
 	color: #141414;
 }
 

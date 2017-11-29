@@ -15,19 +15,28 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #fff;
   padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 /* media query max 700px */
 @media (max-width: 700px) {
 
 	/* navbar mobile */
+	.wrap-container {
+		min-height:100%; 
+		height: auto !important; 
+		height: 100%;
+		position: relative;
+	}
+
 	.navbar-mobile {
 		display: block;
 		margin: 0 auto;
 	}
 
 	.navbar {
-		margin-top: -2em;
+		margin-top: -5em;
 		padding-top: 1.4em;
 		padding-bottom: 1em;
 		left: 0;
@@ -66,7 +75,8 @@ body {
 
 	.wrap, 
 	.des-area {
-		padding: 0 1em;
+		padding-left: 1em;
+		padding-right: 1em;
 		margin-top: 3.2em;
 	}
 
@@ -76,11 +86,33 @@ body {
 	}
 
 	.footer-area {
-		height: 4em;
+		position: absolute;
+		height: 8em;
 		width: 100%;
-		bottom: 0;
+		clear: both;
 		box-sizing: border-box;
-		background-color: rgba(240, 240, 240, 0.8);
+		background-color: rgba(250, 250, 250, 1);
+	}
+
+	.footer {
+		position: relative;
+	}
+
+	.social-icons{
+		position: absolute;
+		top: 50%;
+  		margin-top: 50px;
+		margin-left: 1.2em;
+	}
+
+	.social-icons a {
+		margin: 0 .3em;
+		text-decoration-line: none;
+	}
+
+	.social-icons img {
+		width: 1.2em;
+		height: 1.2em;
 	}
 
 	.right-comment p {
@@ -96,6 +128,7 @@ body {
 	width: 100%;
 	display: block;
 	margin: -1.6em auto;
+	margin-top: -11.2em;
 	position: fixed;
 	background-color: #fff;
 }
@@ -236,6 +269,27 @@ body {
 	margin: 0 auto;
 	position: fixed;
 	background-color: #fff;
+}
+
+.footer {
+	float: left;
+	display: inline;
+}
+
+.social-icons {
+	float: left;
+	padding-top: 1.7em;
+	margin-left: 8.5em;
+}
+
+.social-icons a {
+	text-decoration-line: none;
+	margin: 0 .5em;
+}
+
+.social-icons img {
+	width: 1.5em;
+	height: 1.5em;
 }
 
 .right-comment {

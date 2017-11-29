@@ -108,6 +108,7 @@ body {
 	.social-icons a {
 		margin: 0 .3em;
 		text-decoration-line: none;
+		-webkit-text-decoration-line: none;
 	}
 
 	.social-icons img {
@@ -284,6 +285,7 @@ body {
 
 .social-icons a {
 	text-decoration-line: none;
+	-webkit-text-decoration-line: none;
 	margin: 0 .5em;
 }
 

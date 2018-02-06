@@ -24,8 +24,8 @@ body {
 
   /* navbar mobile */
   .wrap-container {
-    min-height:100%; 
-    height: auto !important; 
+    min-height:100%;
+    height: auto !important;
     height: 100%;
     position: relative;
   }
@@ -73,11 +73,12 @@ body {
     padding: 0 2em;
   }
 
-  .wrap, 
+  .wrap,
   .des-area {
     padding-left: 1em;
     padding-right: 1em;
     margin-top: 3.2em;
+    padding-top: 3em;
   }
 
   .proj-container > .homepageimg img {

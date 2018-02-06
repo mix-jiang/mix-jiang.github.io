@@ -36,9 +36,9 @@ body {
   }
 
   .navbar {
-    margin-top: -5.5em;
+    margin-top: -5em;
     padding-top: 2.8em;
-    padding-bottom: 0.6em;
+    padding-bottom: 1em;
     left: 0;
     right: 0;
     display: flex;
@@ -52,7 +52,7 @@ body {
   .navlogo img {
     margin: 0 auto;
     display: block;
-    width: 12%;
+    width: 15%;
   }
 
   .logo-text {
@@ -78,7 +78,7 @@ body {
     padding-left: 1em;
     padding-right: 1em;
     margin-top: 3.2em;
-    padding-top: 1.5em;
+    padding-top: 3em;
   }
 
   .proj-container > .homepageimg img {
@@ -131,7 +131,7 @@ body {
   width: 100%;
   display: block;
   margin: -1.6em auto;
-  margin-top: -11.2em;
+  margin-top: -10em;
   position: fixed;
   background-color: #fff;
 }
@@ -147,10 +147,11 @@ body {
 .navlogo {
   display: flex;
   align-items: baseline;
+  margin-left: 6.1em;
 }
 
 .nav-logo {
-  display: inline-block;
+  display: none;
   width: 100px;
   height: 100px;
 }

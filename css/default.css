@@ -31,8 +31,9 @@ body {
   }
 
   .navbar-mobile {
-    display: block;
+    display: flex;
     margin: 0 auto;
+    justify-content: space-between;
   }
 
   .navbar {
@@ -50,9 +51,16 @@ body {
   }
 
   .navlogo img {
-    margin: 0 auto;
+    margin-left: 1.1em;
     display: block;
-    width: 12%;
+    width: 20%;
+  }
+
+  .menubtn img {
+    width: 7%;
+    float: right;
+    margin-top: 0.5em;
+    margin-right: 1.1em;
   }
 
   .logo-text {
@@ -60,7 +68,16 @@ body {
   }
 
   .types {
+    align-self: flex-start;
     display: none;
+  }
+
+  .types ul li {
+    list-style-type: none;
+  }
+
+  .types a {
+    text-decoration-line: none;
   }
 
   /* description part mobile */
@@ -182,6 +199,10 @@ body {
   font-weight: 100;
   font-size: 1.5em;
   letter-spacing: 0.3em;
+}
+
+.menubtn img {
+  display: none;
 }
 
 .types {

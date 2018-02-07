@@ -21,6 +21,9 @@ $( ".homepageimg" ).click(function() {
   $(this).hide(500).delay(1500).show(300);
 })
 
+$(.menubtn).click(function(){
+  $(.types).slideToggle();
+})
 
 
 });

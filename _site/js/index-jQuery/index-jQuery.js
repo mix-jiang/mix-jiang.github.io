@@ -22,7 +22,7 @@ $( ".homepageimg" ).click(function() {
 })
 
 $(.menubtn).click(function(){
-  $(.types).slideToggle();
+  $(#ul).hide().alert("roger");
 })
 
 

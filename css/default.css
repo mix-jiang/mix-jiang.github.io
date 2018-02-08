@@ -31,36 +31,27 @@ body {
   }
 
   .navbar-mobile {
-    display: flex;
     margin: 0 auto;
-    justify-content: space-between;
-  }
-
-  .navbar {
-    margin-top: -5.5em;
-    padding-top: 2.8em;
-    padding-bottom: 0.6em;
+    margin-top: -3.1em;
+    padding: 0.6em 0;
     left: 0;
     right: 0;
     display: flex;
     align-items: baseline;
     position: fixed;
-
     background-color: #fff;
     box-shadow: 0px 2px 10px 0px rgba(240, 240, 240, 0.6);
   }
 
-  .navlogo img {
-    margin-left: 1.1em;
+  .navlogo {
+    margin: 0 auto;
     display: block;
-    width: 20%;
   }
 
-  .menubtn img {
-    width: 7%;
-    float: right;
-    margin-top: 0.5em;
-    margin-right: 1.1em;
+  .navlogo img {
+    margin: 0 auto;
+    display: block;
+    width: 10%;
   }
 
   .logo-text {
@@ -68,16 +59,7 @@ body {
   }
 
   .types {
-    align-self: flex-start;
     display: none;
-  }
-
-  .types ul li {
-    list-style-type: none;
-  }
-
-  .types a {
-    text-decoration-line: none;
   }
 
   /* description part mobile */
@@ -94,7 +76,7 @@ body {
   .des-area {
     padding-left: 1em;
     padding-right: 1em;
-    margin-top: 3.2em;
+    margin-top: 3em;
     padding-top: 1.5em;
   }
 

@@ -1,29 +1,20 @@
 $(document).ready(function(){
-  $("ul").click(function() {
-    $(this).fadeToggle(function() {
-      alert("hide");
+
+  $( ".homepageimg" ).click(function() {
+    $(this).hide(500).delay(1500).show(300);
+  })
+
+
+  $( ".menu-btn" ).click(function(){
+    $( this ).fadeOut(700);
+    $( ".bg" ).fadeToggle(700);
+    $( ".mobile-menu" ).fadeToggle(1200);
+  })
+
+    $( ".bg" ).click(function(){
+      $( ".mobile-menu" ).fadeOut(500);
+      $( ".bg" ).fadeOut(1500);
+      $( ".menu-btn" ).fadeIn(700);
     })
-  });
-
-var app1 = $("#nonexistent");
-
-var callback = function() {
-  console.log("done!");
-};
-
-if (app1.length){
-  app1.fadeIn(300, callback);
-} else {
-  callback();
-}
-
-$( ".homepageimg" ).click(function() {
-  $(this).hide(500).delay(1500).show(300);
-})
-
-$(.menubtn).click(function(){
-  $(#ul).hide().alert("roger");
-})
-
 
 });

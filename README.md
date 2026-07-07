@@ -1,7 +1,7 @@
-# mix-jiang.github.io
-### G I N G E R W O R K S
-> Mix's personal site & portfolio
+# gingerworks.me
 
-Mix Jiang is a bachelor of economy who is enthusiastic in [design](https://www.dribbble.com/mixjiang "Mix Jiang - Dribbble") and front-end developing.
+Mix Jiang 个人网站(发布仓库)。
 
-The site based on GitHub Pages and jekyll. 
+- 开发仓库:本地 gingerworksme_site 目录(规划文档见 mixj-myself/website/)
+- 旧版 Jekyll 站备份在 legacy-jekyll 分支
+- 本仓库只放最终上线文件,不在此直接开发

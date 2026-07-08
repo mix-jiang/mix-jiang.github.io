@@ -2,8 +2,17 @@
 interface Props {
   title: string;
   description?: string;
+  locked?: boolean;   // 一屏布局(首页/详情页):100vh 内部滚动
+  active?: 'projects' | 'writing' | '';
+  showLangToggle?: boolean;
 }
-const { title, description = 'Mix Jiang — experience designer & product manager, working the AI-native way.' } = Astro.props;
+const {
+  title,
+  description = 'Mix Jiang — product designer, fintech experiences for millions of users. Exploring AI-native ways of building.',
+  locked = false,
+  active = '',
+  showLangToggle = false,
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="zh-Hans">
@@ -15,20 +24,41 @@ const { title, description = 'Mix Jiang — experience designer & product manage
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <slot />
-  <footer class="footer">
-    <p>
-      © {new Date().getFullYear()} Mix Jiang · Ginger Works
-      <span class="footer-links">
-        <a href="mailto:mixitaliano@gmail.com">Email</a>
+  <div class:list={['shell', { 'is-locked': locked }]}>
+    <nav class="nav">
+      <div class="nav-brand">
+        <div class="nav-logo"></div>
+        <a href="/">Mix Jiang</a>
+      </div>
+      <div class="nav-links">
+        <a href="/projects/" class:list={[{ 'is-active': active === 'projects' }]} data-en="Projects" data-zh="项目">Projects</a>
+        <a href="/writing/" class:list={[{ 'is-active': active === 'writing' }]} data-en="Writing" data-zh="写作">Writing</a>
+        <a href="/#about" data-en="About" data-zh="关于">About</a>
+        <a href="mailto:mixitaliano@gmail.com" data-en="Contact" data-zh="联系">Contact</a>
+        {showLangToggle && (
+          <div class="lang-toggle" id="lang-toggle">
+            <span id="lang-en" class="is-active">EN</span>
+            <span id="lang-zh">中</span>
+          </div>
+        )}
+      </div>
+    </nav>
+    <slot />
+    <footer class="footer">
+      <span>gingerworks.me</span>
+      <div class="footer-right">
+        <a href="mailto:mixitaliano@gmail.com">eMail</a>
         <a href="https://www.linkedin.com/in/mingxuan-jiang-31a0a392/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.instagram.com/mix_j" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://github.com/mix-jiang" target="_blank" rel="noopener">GitHub</a>
-      </span>
-    </p>
-  </footer>
+        <span>HK · UTC+8</span>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

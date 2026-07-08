@@ -25,3 +25,14 @@ npm run build                 # 构建到 dist/
 ## 待办
 
 - Merchant Promotion 案例图片仍热链 framerusercontent,待下载替换为 `public/images/` 自托管
+
+## 案例页(case study)md 约定
+
+frontmatter 含 `toc` 数组即启用侧边目录+scroll-spy 版式(见 merchant-promotion-revamp.md):
+
+- 每节包在 `<div class="sec" id="sN">…</div>` 中,N 与 toc 顺序对应
+- 节首行 `<div class="sec-kicker">01 · SECTION NAME</div>`,随后空行,之后正常写 markdown
+- 结论块:`<div class="conclusion"><span class="conclusion-tag">CONCLUSION n </span><br/>text</div>`
+- 无 `toc` 的项目/文章走简单文章版式
+
+设计规则源:mixj-myself/design + design_handoff_gingerworks_redesign(深色+姜黄 token,2026-07-09)

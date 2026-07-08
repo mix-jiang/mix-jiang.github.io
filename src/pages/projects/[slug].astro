@@ -9,13 +9,67 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const d = entry.data;
+const isCase = !!d.toc?.length;
 ---
-<Base title={`${entry.data.title} — Mix Jiang`} description={entry.data.summary}>
-  <article class="article">
-    <a class="article-back" href="/">← Back</a>
-    <p class="article-meta">Project · {entry.data.date}{entry.data.tags.length > 0 && ` · ${entry.data.tags.join(' · ')}`}</p>
-    <h1 class="article-title">{entry.data.title}</h1>
-    <p class="article-summary">{entry.data.summary}</p>
-    <div class="prose"><Content /></div>
-  </article>
-</Base>
+{isCase ? (
+  <Base title={`${d.title} — Mix Jiang`} description={d.summary} locked={true} active="projects">
+    <main class="case">
+      <aside class="case-side">
+        <a class="case-back" href="/projects/">← back</a>
+        <div>
+          <div class="kicker">CASE STUDY · {d.year ?? d.date.slice(0, 4)}</div>
+          <div class="case-title">{d.title}</div>
+          {(d.org || d.role) && <div class="case-role">{[d.org, d.role].filter(Boolean).join(' · ')}</div>}
+        </div>
+        <nav class="toc" id="toc">
+          {d.toc!.map((label, i) => (
+            <a href={`#s${i}`} class:list={[{ 'is-active': i === 0 }]} data-toc={i}>
+              <span class="toc-num">{String(i).padStart(2, '0')}</span>
+              <span class="toc-label">{label}</span>
+            </a>
+          ))}
+        </nav>
+        {(d.sideTags ?? d.tags).length > 0 && (
+          <div class="side-tags">
+            {(d.sideTags ?? d.tags).map((t) => <span>{t}</span>)}
+          </div>
+        )}
+      </aside>
+      <div class="case-scroll" id="case-scroll">
+        <div class="case-body"><Content /></div>
+      </div>
+    </main>
+
+    <script>
+      // scroll-spy:视口顶 200px 内最后经过的 section 为激活(来自设计稿逻辑)
+      const scroller = document.getElementById('case-scroll')!;
+      const links = document.querySelectorAll<HTMLAnchorElement>('#toc a');
+      const spy = () => {
+        const secs = scroller.querySelectorAll<HTMLElement>('.sec[id]');
+        let active = 0;
+        const top = scroller.getBoundingClientRect().top;
+        secs.forEach((s) => {
+          if (s.getBoundingClientRect().top - top < 200) {
+            active = Number(s.id.replace('s', ''));
+          }
+        });
+        links.forEach((l, i) => l.classList.toggle('is-active', i === active));
+      };
+      scroller.addEventListener('scroll', spy, { passive: true });
+      spy();
+    </script>
+  </Base>
+) : (
+  <Base title={`${d.title} — Mix Jiang`} description={d.summary}>
+    <main class="page-scroll">
+      <article class="article-simple">
+        <a class="back-link" href="/projects/">← back</a>
+        <div class="kicker">PROJECT · {d.date}{d.tags.length > 0 && ` · ${d.tags.join(' · ').toUpperCase()}`}</div>
+        <h1>{d.title}</h1>
+        <p class="article-summary">{d.summary}</p>
+        <Content />
+      </article>
+    </main>
+  </Base>
+)}

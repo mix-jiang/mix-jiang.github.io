@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('projects', ({ data }) => !data.draft))
+  .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+---
+<Base title="Projects — Mix Jiang" active="projects">
+  <main class="page-scroll">
+    <div class="list-page">
+      <div class="kicker">PROJECTS</div>
+      {entries.map((e) => (
+        <div class="list-item">
+          <div class="list-meta"><span class="accent">{e.data.date}</span>{e.data.tags.length > 0 && ` · ${e.data.tags.join(' · ')}`}</div>
+          <div class="list-title"><a href={`/projects/${e.id}/`}>{e.data.title}</a></div>
+          <p class="list-summary">{e.data.summary}</p>
+        </div>
+      ))}
+    </div>
+  </main>
+</Base>

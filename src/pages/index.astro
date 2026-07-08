@@ -1,74 +1,77 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
-
-const projects = await getCollection('projects', ({ data }) => !data.draft);
-const posts = await getCollection('posts', ({ data }) => !data.draft);
-
-const items = [
-  ...projects.map((e) => ({ ...e, type: 'project', href: `/projects/${e.id}/` })),
-  ...posts.map((e) => ({ ...e, type: 'post', href: `/posts/${e.id}/` })),
-].sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
-
-const TYPE_LABEL: Record<string, string> = { project: 'Project', post: 'Post' };
 ---
-<Base title="Mix Jiang — Design × Product × AI">
-  <header class="hero">
-    <p class="hero-kicker">Mix Jiang · 姜铭烜 · gingerworks</p>
-    <h1 class="hero-title">Experience designer &amp; product manager,<br />working the AI&#8209;native way.</h1>
-    <p class="hero-desc">
-      腾讯 WeChat Pay HK 体验设计师 + 产品经理。热衷于打造兼具体验与业务价值的数字产品,
-      关注 AI Agent 工程化、AI 辅助产品设计工作流与个人生产力系统。
-    </p>
-    <p class="hero-interests">
-      Off work: tech products, electronic music, car culture — snowboarding, road cycling, boxing &amp; kitesurfing.
-    </p>
-    <p class="hero-links">
-      <a href="mailto:mixitaliano@gmail.com">Email</a>
-      <span class="sep">/</span>
-      <a href="https://www.linkedin.com/in/mingxuan-jiang-31a0a392/" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="sep">/</span>
-      <a href="https://www.instagram.com/mix_j" target="_blank" rel="noopener">Instagram</a>
-    </p>
-  </header>
+<Base title="Mix Jiang — Product Designer · Hong Kong" locked={true} active="projects" showLangToggle={true}>
+  <main class="home" id="about">
+    <div class="home-photos">
+      <div class="photo-main">
+        <img src="https://framerusercontent.com/images/OQOQXHYWzmcifotmOiW0zH4M.png?width=1116&height=1596" alt="Mix Jiang portrait" />
+      </div>
+      <div class="photo-sm">
+        <img src="https://framerusercontent.com/images/85syzp8D1Mwskw7JUqQcqp1DoY.jpg?width=501&height=851" alt="Snowboarding / cycling" />
+      </div>
+      <div class="photo-sm">
+        <img src="https://framerusercontent.com/images/p5Sl16hp4Txai79vi0N1iOmBjw.jpg?width=1080&height=2249" alt="Travel / live" />
+      </div>
+    </div>
 
-  <main>
-    <nav class="filter" aria-label="内容筛选">
-      <button class="filter-btn is-active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="project">Projects</button>
-      <button class="filter-btn" data-filter="post">Posts</button>
-    </nav>
+    <div class="home-text">
+      <div class="kicker" data-en="PRODUCT DESIGNER · HONG KONG" data-zh="产品设计师 · 香港">PRODUCT DESIGNER · HONG KONG</div>
+      <div>
+        <div class="home-name">Jiang Mingxuan</div>
+        <div class="home-desc" data-en="Product designer — fintech experiences for millions of users. Now exploring AI-native ways of building." data-zh="产品设计师 — 服务数百万用户的金融科技体验,正在探索 AI-native 的构建方式。">Product designer — fintech experiences for millions of users. Now exploring AI-native ways of building.</div>
+      </div>
 
-    <section class="stream" id="stream" aria-live="polite">
-      {items.map((it) => (
-        <article class="card" data-type={it.type}>
-          <p class="card-meta">{TYPE_LABEL[it.type]} · {it.data.date}</p>
-          <h2 class="card-title"><a href={it.href}>{it.data.title}</a></h2>
-          <p class="card-summary">{it.data.summary}</p>
-          {it.data.tags.length > 0 && <p class="card-tags">{it.data.tags.join(' · ')}</p>}
-        </article>
-      ))}
-    </section>
+      <div class="now">
+        <div class="now-head">
+          <span class="kicker">NOW</span>
+          <span class="now-live">● <span data-en="in progress" data-zh="进行中">in progress</span></span>
+        </div>
+        <div class="now-list">
+          <div class="now-row">
+            <span class="now-date">2026-06</span>
+            <a href="/projects/investing-assistant/" data-en="Investing Assistant — multi-source investing research" data-zh="Investing Assistant — 多信源投资研究系统">Investing Assistant — multi-source investing research</a>
+          </div>
+          <div class="now-row">
+            <span class="now-date">2026-04</span>
+            <a href="/projects/digital-twin/" data-en="Digital Twin — personal context system" data-zh="Digital Twin — 个人上下文系统">Digital Twin — personal context system</a>
+          </div>
+          <div class="now-row is-muted">
+            <span class="now-date">2026-07</span>
+            <span data-en="Writing: AI-native workflow in practice" data-zh="AI-native 工作流实践">Writing: AI-native workflow in practice</span>
+            <span class="now-draft" data-en="drafting…" data-zh="写作中…">drafting…</span>
+          </div>
+        </div>
+      </div>
 
-    <p id="empty" class="empty" hidden>这个分类下暂时还没有内容。</p>
+      <div class="chips-block">
+        <div class="kicker">OFF SCREEN</div>
+        <div class="chips">
+          <span class="chip" data-en="snowboarding" data-zh="滑雪 snowboarding">snowboarding</span>
+          <span class="chip" data-en="road cycling" data-zh="公路车 road cycling">road cycling</span>
+          <span class="chip" data-en="boxing" data-zh="拳击 boxing">boxing</span>
+          <span class="chip" data-en="kitesurfing" data-zh="风筝冲浪 kitesurfing">kitesurfing</span>
+          <span class="chip is-accent" data-en="electronic music" data-zh="电子音乐 electronic music">electronic music</span>
+          <span class="chip" data-en="car culture" data-zh="汽车文化 car culture">car culture</span>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>
-    const btns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    const cards = document.querySelectorAll<HTMLElement>('.card');
-    const empty = document.getElementById('empty')!;
-    btns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const f = btn.dataset.filter;
-        btns.forEach((b) => b.classList.toggle('is-active', b === btn));
-        let visible = 0;
-        cards.forEach((c) => {
-          const show = f === 'all' || c.dataset.type === f;
-          c.hidden = !show;
-          if (show) visible++;
-        });
-        empty.hidden = visible > 0;
+    const apply = (lang: string) => {
+      document.querySelectorAll<HTMLElement>('[data-en]').forEach((el) => {
+        const v = el.dataset[lang as 'en' | 'zh'];
+        if (v) el.textContent = v;
       });
-    });
+      document.getElementById('lang-en')?.classList.toggle('is-active', lang === 'en');
+      document.getElementById('lang-zh')?.classList.toggle('is-active', lang === 'zh');
+      try { localStorage.setItem('lang', lang); } catch {}
+    };
+    document.getElementById('lang-en')?.addEventListener('click', () => apply('en'));
+    document.getElementById('lang-zh')?.addEventListener('click', () => apply('zh'));
+    let saved = 'en';
+    try { saved = localStorage.getItem('lang') || 'en'; } catch {}
+    if (saved === 'zh') apply('zh');
   </script>
 </Base>

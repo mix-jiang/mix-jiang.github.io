@@ -3,14 +3,29 @@ title: Merchant Promotion System Revamp
 date: "2024-06"
 summary: Rebuilding WeChat Pay HK's merchant promotion system — from campaign-centric pages to a brand-centric platform, making promotions easier to launch for teams and easier to use for millions of users.
 tags: [UX, Business, WeChat Pay HK]
+toc: [Overview, Find Issues, Issues in Process, Design Strategies, Final Design]
+role: Product Designer
+org: WeChat Pay HK
+year: "2024"
+sideTags: [UX, Business, Fintech]
 draft: false
 ---
 
-> 图片暂时热链自 Framer 托管(framerusercontent.com),待替换为仓库自托管。
+<!-- 案例页版式约定:每节用 <div class="sec" id="sN"> 包裹,首行 sec-kicker,
+     节内正文仍是 markdown。图片暂热链 framerusercontent,待自托管替换。 -->
 
-WeChat Pay HK's main marketing strategy is launching joint promotions with merchants to drive transaction growth and wallet adoption. As joint promotions multiplied, the resources needed to prepare each one became strained. The promotion tools needed a redesign — to streamline everything from internal planning to user participation.
+<div class="sec" id="s0">
+<div class="sec-kicker">OVERVIEW</div>
+<div class="sec-hero">从"活动为中心"到"品牌为中心"的商户营销系统重构</div>
 
-## 01 · Find Issues
+<p class="sec-intro">WeChat Pay HK's main marketing strategy is launching joint promotions with merchants to drive transaction growth and wallet adoption. As joint promotions multiplied, the resources needed to prepare each one became strained. The promotion tools needed a redesign — to streamline everything from internal planning to user participation.</p>
+
+</div>
+
+<div class="sec" id="s1">
+<div class="sec-kicker">01 · FIND ISSUES</div>
+
+## 复杂的筹备流程,复杂的参与体验
 
 **How is a merchant promotion campaign prepared?** Each launch involved WeChat Pay HK, the merchant, BD, operations, design, and dev: meetings for alignment, custom page design per campaign, repeated development, listing coupons across multiple pages, and full QA on every tool.
 
@@ -22,9 +37,14 @@ WeChat Pay HK's main marketing strategy is launching joint promotions with merch
 - "Can't find the coupon after claiming." / "Coupon redemption failed."
 - "One merchant seems to have a lot of campaign pages."
 
-**Conclusion 1** — There seem to be many promotional campaigns, but the experience is so complicated that users never build the habit of using promotions.
+<div class="conclusion"><span class="conclusion-tag">CONCLUSION 1 </span><br/>There seem to be many promotional campaigns, but the experience is so complicated that users never build the habit of using promotions.</div>
 
-## 02 · Issues in Process
+</div>
+
+<div class="sec" id="s2">
+<div class="sec-kicker">02 · ISSUES IN PROCESS</div>
+
+## 入口、券种与核销的三重摩擦
 
 ### Entry points to claim coupons
 
@@ -33,7 +53,7 @@ A user looking for all of one brand's offers (e.g. McDonald's) had to visit **up
 - For team crews: launching one promotion meant configuring, designing and verifying up to 5 operational tools, with confusing relationships between coupons and pages.
 - For users: too many pages, disordered linkage.
 
-**Conclusion 2** — Activity pages and tools were confusing; users could not find a stable campaign page for a brand.
+<div class="conclusion"><span class="conclusion-tag">CONCLUSION 2 </span><br/>Activity pages and tools were confusing; users could not find a stable campaign page for a brand.</div>
 
 ### Discount types
 
@@ -44,16 +64,26 @@ A user looking for all of one brand's offers (e.g. McDonald's) had to visit **up
 
 From trigger (banner/pop-up/notification) → campaign page → claim → "My Rewards" → manual use at checkout, the average time-to-use was 2.5 days, with users dropping off at every step.
 
-**Conclusion 3** — Users didn't understand the complex discount types, and too many steps made coupons hard to use.
+<div class="conclusion"><span class="conclusion-tag">CONCLUSION 3 </span><br/>Users didn't understand the complex discount types, and too many steps made coupons hard to use.</div>
 
-## 03 · Design Strategies
+</div>
+
+<div class="sec" id="s3">
+<div class="sec-kicker">03 · DESIGN STRATEGIES</div>
+
+## 回到用户视角:Claim 与 Redeem 两条主线
 
 Two directions, returning from a campaign perspective to a **user perspective**:
 
 1. **Claim** — integrate marketing tools, centralize by brand, revamp the user flow.
 2. **Redeem** — raise awareness of benefits, add instructions, guide users based on context.
 
-## 04 · Final Design
+</div>
+
+<div class="sec" id="s4">
+<div class="sec-kicker">04 · FINAL DESIGN</div>
+
+## 品牌集中化 + 模块化工具 + 场景化引导
 
 ### Claim: brand centralization
 
@@ -77,6 +107,6 @@ Touch points around the claim flow teach users what each coupon is: distinct app
 
 Available coupons are recommended automatically by situation: claimed coupons surfaced on the brand page, reminders at checkout when showing the payment code, recommendations inside online services, and LBS-based nearby-merchant suggestions.
 
----
+<div class="case-sign">Role: product designer · WeChat Pay HK · 2024</div>
 
-*Role: product designer · WeChat Pay HK · 2024*
+</div>

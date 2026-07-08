@@ -8,6 +8,12 @@ const entrySchema = z.object({
   tags: z.array(z.string()).default([]),
   cover: z.string().optional(),
   draft: z.boolean().default(false),
+  // case study 版式(有 toc 即启用侧边目录 + scroll-spy 布局)
+  toc: z.array(z.string()).optional(),
+  role: z.string().optional(),
+  org: z.string().optional(),
+  year: z.string().optional(),
+  sideTags: z.array(z.string()).optional(),
 });
 
 const projects = defineCollection({

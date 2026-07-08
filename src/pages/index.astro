@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects', ({ data }) => !data.draft);
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+
+const items = [
+  ...projects.map((e) => ({ ...e, type: 'project', href: `/projects/${e.id}/` })),
+  ...posts.map((e) => ({ ...e, type: 'post', href: `/posts/${e.id}/` })),
+].sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+
+const TYPE_LABEL: Record<string, string> = { project: 'Project', post: 'Post' };
+---
+<Base title="Mix Jiang — Design × Product × AI">
+  <header class="hero">
+    <p class="hero-kicker">Mix Jiang · 姜铭烜 · gingerworks</p>
+    <h1 class="hero-title">Experience designer &amp; product manager,<br />working the AI&#8209;native way.</h1>
+    <p class="hero-desc">
+      腾讯 WeChat Pay HK 体验设计师 + 产品经理。热衷于打造兼具体验与业务价值的数字产品,
+      关注 AI Agent 工程化、AI 辅助产品设计工作流与个人生产力系统。
+    </p>
+    <p class="hero-interests">
+      Off work: tech products, electronic music, car culture — snowboarding, road cycling, boxing &amp; kitesurfing.
+    </p>
+    <p class="hero-links">
+      <a href="mailto:mixitaliano@gmail.com">Email</a>
+      <span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/mingxuan-jiang-31a0a392/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="sep">/</span>
+      <a href="https://www.instagram.com/mix_j" target="_blank" rel="noopener">Instagram</a>
+    </p>
+  </header>
+
+  <main>
+    <nav class="filter" aria-label="内容筛选">
+      <button class="filter-btn is-active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="project">Projects</button>
+      <button class="filter-btn" data-filter="post">Posts</button>
+    </nav>
+
+    <section class="stream" id="stream" aria-live="polite">
+      {items.map((it) => (
+        <article class="card" data-type={it.type}>
+          <p class="card-meta">{TYPE_LABEL[it.type]} · {it.data.date}</p>
+          <h2 class="card-title"><a href={it.href}>{it.data.title}</a></h2>
+          <p class="card-summary">{it.data.summary}</p>
+          {it.data.tags.length > 0 && <p class="card-tags">{it.data.tags.join(' · ')}</p>}
+        </article>
+      ))}
+    </section>
+
+    <p id="empty" class="empty" hidden>这个分类下暂时还没有内容。</p>
+  </main>
+
+  <script>
+    const btns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const cards = document.querySelectorAll<HTMLElement>('.card');
+    const empty = document.getElementById('empty')!;
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        btns.forEach((b) => b.classList.toggle('is-active', b === btn));
+        let visible = 0;
+        cards.forEach((c) => {
+          const show = f === 'all' || c.dataset.type === f;
+          c.hidden = !show;
+          if (show) visible++;
+        });
+        empty.hidden = visible > 0;
+      });
+    });
+  </script>
+</Base>

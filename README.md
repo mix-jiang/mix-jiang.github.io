@@ -1,21 +1,27 @@
 # gingerworks.me
 
-Mix Jiang 个人网站。**本仓库是唯一源码仓库,master 即线上**(GitHub Pages)。
+Mix Jiang 个人网站,Astro 构建。**本仓库是唯一源码仓库**,push master 后 GitHub Actions 自动构建发布。
 
-## 工作流
+## 日常维护(无需本地 Node)
 
-- 本地开发:克隆到 iCloud 外目录(如 ~/dev/mix-jiang.github.io),改完 push 即上线
-- 实验改动走分支,确认后合入 master
-- 加内容:只改 content.json(schema 见文件头 _readme,status=draft 不渲染)
-- 本地预览:python3 -m http.server 8000(直接双击 index.html 会被 CORS 拦)
+- 加/改项目:编辑 `src/content/projects/*.md`,push 即上线
+- 加/改文章:编辑 `src/content/posts/*.md`
+- frontmatter: title / date(YYYY-MM) / summary / tags / draft(true 不发布)
+- 图片:放 `public/images/`,md 里用 `/images/xxx.png` 引用
+
+## 本地开发(可选)
+
+```bash
+npm install && npm run dev    # 预览
+npm run build                 # 构建到 dist/
+```
 
 ## 上下文
 
-- 规划/决策/内容文案:mixj-myself vault 的 website/ 目录
-- 视觉气质约束:mixj-myself/design/DESIGN.md
-- 旧 Jekyll 站:legacy-jekyll 分支
-- 域名 DNS 切换步骤:DEPLOY.md(切换时需把 CNAME 文件加回来,内容 gingerworks.me)
+- 规划/决策:mixj-myself vault 的 website/ 目录;视觉约束:design/DESIGN.md
+- 旧站备份:legacy-jekyll(Jekyll)、mvp-static(纯静态 MVP)分支
+- 域名切换:见 DEPLOY.md;切 DNS 时在 `public/` 加 CNAME 文件(内容 gingerworks.me)
 
-## Phase 2 注意
+## 待办
 
-上 Astro 等构建工具链时,node_modules 不进 iCloud;content.json 结构可平滑迁移到 content collections。
+- Merchant Promotion 案例图片仍热链 framerusercontent,待下载替换为 `public/images/` 自托管

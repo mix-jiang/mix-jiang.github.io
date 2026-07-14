@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Mix Jiang — Product Designer · Hong Kong" locked={true} active="projects" showLangToggle={true}>
+<Base title="Mix Jiang — Product Designer · Hong Kong" locked={true} showLangToggle={true}>
   <main class="home" id="about">
     <div class="home-photos">
       <div class="photo-main">
@@ -24,10 +24,14 @@ import Base from '../layouts/Base.astro';
 
       <div class="now">
         <div class="now-head">
-          <span class="kicker">NOW</span>
+          <span class="kicker" data-en="RECENT" data-zh="最近">RECENT</span>
           <span class="now-live">● <span data-en="in progress" data-zh="进行中">in progress</span></span>
         </div>
         <div class="now-list">
+          <div class="now-row">
+            <span class="now-date" data-en="Now" data-zh="至今">Now</span>
+            <a href="/about/" data-en="WeChat Pay HK — Experience Designer & Product Manager" data-zh="WeChat Pay HK — 体验设计师 + 产品经理">WeChat Pay HK — Experience Designer &amp; Product Manager</a>
+          </div>
           <div class="now-row">
             <span class="now-date">2026-06</span>
             <a href="/projects/investing-assistant/" data-en="Investing Assistant — multi-source investing research" data-zh="Investing Assistant — 多信源投资研究系统">Investing Assistant — multi-source investing research</a>
@@ -51,7 +55,7 @@ import Base from '../layouts/Base.astro';
           <span class="chip" data-en="road cycling" data-zh="公路车 road cycling">road cycling</span>
           <span class="chip" data-en="boxing" data-zh="拳击 boxing">boxing</span>
           <span class="chip" data-en="kitesurfing" data-zh="风筝冲浪 kitesurfing">kitesurfing</span>
-          <span class="chip is-accent" data-en="electronic music" data-zh="电子音乐 electronic music">electronic music</span>
+          <span class="chip" data-en="electronic music" data-zh="电子音乐 electronic music">electronic music</span>
           <span class="chip" data-en="car culture" data-zh="汽车文化 car culture">car culture</span>
         </div>
       </div>

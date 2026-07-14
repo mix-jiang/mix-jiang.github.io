@@ -8,6 +8,7 @@ role: Product Designer
 org: WeChat Pay HK
 year: "2024"
 sideTags: [UX, Business, Fintech]
+cover: "https://framerusercontent.com/images/lhDVCoAurT3DH3OM49GuUTxllfc.png?scale-down-to=1024"
 draft: false
 ---
 

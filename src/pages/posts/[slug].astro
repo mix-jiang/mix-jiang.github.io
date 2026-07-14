@@ -11,10 +11,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 ---
-<Base title={`${d.title} — Mix Jiang`} description={d.summary} active="writing">
+<Base title={`${d.title} — Mix Jiang`} description={d.summary}>
   <main class="page-scroll">
     <article class="article-simple">
-      <a class="back-link" href="/writing/">← back</a>
+      <a class="back-link" href="/projects/">← back</a>
       <div class="kicker">POST · {d.date}{d.tags.length > 0 && ` · ${d.tags.join(' · ').toUpperCase()}`}</div>
       <h1>{d.title}</h1>
       <p class="article-summary">{d.summary}</p>

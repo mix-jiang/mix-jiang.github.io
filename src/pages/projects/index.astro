@@ -2,20 +2,55 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const entries = (await getCollection('projects', ({ data }) => !data.draft))
-  .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+const projects = await getCollection('projects', ({ data }) => !data.draft);
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const entries = [
+  ...projects.map((e) => ({ ...e, type: 'project', href: `/projects/${e.id}/` })),
+  ...posts.map((e) => ({ ...e, type: 'post', href: `/posts/${e.id}/` })),
+].sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+
+const TYPE_LABEL: Record<string, string> = { project: 'Project', post: 'Post' };
 ---
-<Base title="Projects — Mix Jiang" active="projects">
+<Base title="Projects — Mix Jiang">
   <main class="page-scroll">
     <div class="list-page">
-      <div class="kicker">PROJECTS</div>
-      {entries.map((e) => (
-        <div class="list-item">
-          <div class="list-meta"><span class="accent">{e.data.date}</span>{e.data.tags.length > 0 && ` · ${e.data.tags.join(' · ')}`}</div>
-          <div class="list-title"><a href={`/projects/${e.id}/`}>{e.data.title}</a></div>
-          <p class="list-summary">{e.data.summary}</p>
-        </div>
-      ))}
+      <div class="kicker">PROJECTS &amp; WRITING</div>
+      <div class="list-filter" id="filter">
+        <button class="is-active" data-filter="all">All</button>
+        <button data-filter="project">Projects</button>
+        <button data-filter="post">Posts</button>
+      </div>
+      <div id="list">
+        {entries.map((e) => (
+          <div class="list-item" data-type={e.type}>
+            <div>
+              <div class="list-meta"><span class="accent">{e.data.date}</span> · {TYPE_LABEL[e.type]}{e.data.tags.length > 0 && ` · ${e.data.tags.join(' · ')}`}</div>
+              <div class="list-title"><a href={e.href}>{e.data.title}</a></div>
+              <p class="list-summary">{e.data.summary}</p>
+            </div>
+            {e.data.cover && <a href={e.href}><img class="list-thumb" src={e.data.cover} alt={e.data.title} loading="lazy" /></a>}
+          </div>
+        ))}
+      </div>
+      <p id="list-empty" class="list-empty" hidden>Nothing here yet — drafting…</p>
     </div>
   </main>
+  <script>
+    const btns = document.querySelectorAll<HTMLButtonElement>('#filter button');
+    const items = document.querySelectorAll<HTMLElement>('.list-item');
+    const empty = document.getElementById('list-empty')!;
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        btns.forEach((b) => b.classList.toggle('is-active', b === btn));
+        let n = 0;
+        items.forEach((it) => {
+          const show = f === 'all' || it.dataset.type === f;
+          it.hidden = !show;
+          if (show) n++;
+        });
+        empty.hidden = n > 0;
+      });
+    });
+  </script>
 </Base>

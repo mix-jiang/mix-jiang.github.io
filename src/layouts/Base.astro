@@ -3,14 +3,12 @@ interface Props {
   title: string;
   description?: string;
   locked?: boolean;   // 一屏布局(首页/详情页):100vh 内部滚动
-  active?: 'projects' | 'writing' | '';
   showLangToggle?: boolean;
 }
 const {
   title,
   description = 'Mix Jiang — product designer, fintech experiences for millions of users. Exploring AI-native ways of building.',
   locked = false,
-  active = '',
   showLangToggle = false,
 } = Astro.props;
 ---
@@ -24,6 +22,7 @@ const {
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -33,14 +32,14 @@ const {
   <div class:list={['shell', { 'is-locked': locked }]}>
     <nav class="nav">
       <div class="nav-brand">
-        <div class="nav-logo"></div>
-        <a href="/">Mix Jiang</a>
+        <a href="/" class="wordmark">JIANG MINGXUAN</a>
       </div>
-      <div class="nav-links">
-        <a href="/projects/" class:list={[{ 'is-active': active === 'projects' }]} data-en="Projects" data-zh="项目">Projects</a>
-        <a href="/writing/" class:list={[{ 'is-active': active === 'writing' }]} data-en="Writing" data-zh="写作">Writing</a>
-        <a href="/#about" data-en="About" data-zh="关于">About</a>
-        <a href="mailto:mixitaliano@gmail.com" data-en="Contact" data-zh="联系">Contact</a>
+      <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/projects/" data-en="Projects" data-zh="项目">Projects</a>
+        <a href="/about/" data-en="About" data-zh="关于">About</a>
         {showLangToggle && (
           <div class="lang-toggle" id="lang-toggle">
             <span id="lang-en" class="is-active">EN</span>
@@ -60,5 +59,14 @@ const {
       </div>
     </footer>
   </div>
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const links = document.getElementById('nav-links');
+    btn?.addEventListener('click', () => {
+      const open = links!.classList.toggle('is-open');
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  </script>
 </body>
 </html>

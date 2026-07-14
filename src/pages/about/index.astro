@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+const RESUME_PDF = 'https://drive.google.com/file/d/1qK8KNmjal1k4mEeSKf1ja_FjNuDGwNE3/view?usp=drive_link';
+---
+<Base title="About — Mix Jiang" description="Mix Jiang (Jiang Mingxuan) — experience designer & product manager at WeChat Pay HK. Resume and contact.">
+  <main class="page-scroll">
+    <div class="list-page">
+      <div class="about-head">
+        <div>
+          <div class="kicker">ABOUT</div>
+          <div class="about-title" style="margin-top:14px">Jiang Mingxuan</div>
+          <p class="about-sub">Experience designer &amp; product manager based in Hong Kong. I design payment experiences used across Hong Kong every day, and build products the AI-native way — AI handles the code, I own the product and design decisions.</p>
+        </div>
+        <a class="btn-pdf" href={RESUME_PDF} target="_blank" rel="noopener">RESUME PDF ↓</a>
+      </div>
+
+      <div class="about-block">
+        <div class="kicker">EXPERIENCE</div>
+        <div class="timeline" style="margin-top:20px">
+          <div class="tl-item">
+            <div class="tl-date">NOW</div>
+            <div class="tl-role">Experience Designer &amp; Product Manager</div>
+            <div class="tl-org">Tencent · WeChat Pay HK · Hong Kong</div>
+            <p class="tl-desc">Hong Kong payment products — merchant promotion system, coupons and rewards experience. Side charter: AI product initiatives and recommendation-algorithm product direction (WePoints reranking).</p>
+          </div>
+          <div class="tl-item is-todo">
+            <div class="tl-date">EARLIER</div>
+            <div class="tl-role">待补充 — 早期经历</div>
+            <div class="tl-org">此前的角色、公司与教育背景待 Mix 提供后补全</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-block">
+        <div class="kicker">FOCUS</div>
+        <p class="about-sub" style="margin-top:0">Interaction &amp; product design for fintech · AI Agent engineering in daily workflow (Claude Code, Cursor) · design systems · personal productivity systems (Digital Twin).</p>
+      </div>
+
+      <div class="about-block">
+        <div class="kicker">CONTACT</div>
+        <div class="contact-list" style="margin-top:4px">
+          <a href="mailto:mixitaliano@gmail.com">mixitaliano@gmail.com</a>
+          <a href="https://www.linkedin.com/in/mingxuan-jiang-31a0a392/" target="_blank" rel="noopener">LinkedIn — Mingxuan Jiang</a>
+          <a href="https://www.instagram.com/mix_j" target="_blank" rel="noopener">Instagram — @mix_j</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>
